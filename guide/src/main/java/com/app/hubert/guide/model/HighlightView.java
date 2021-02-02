@@ -74,11 +74,15 @@ public class HighlightView implements HighLight {
 
     private RectF fetchLocation(View target) {
         RectF location = new RectF();
-        Rect locationInView = ViewUtils.getLocationInView(target, mHole);
-        location.left = locationInView.left - padding;
-        location.top = locationInView.top - padding;
-        location.right = locationInView.right + padding;
-        location.bottom = locationInView.bottom + padding;
+        try {
+            Rect locationInView = ViewUtils.getLocationInView(target, mHole);
+            location.left = locationInView.left - padding;
+            location.top = locationInView.top - padding;
+            location.right = locationInView.right + padding;
+            location.bottom = locationInView.bottom + padding;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return location;
     }
 

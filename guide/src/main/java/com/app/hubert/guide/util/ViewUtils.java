@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ScrollView;
@@ -44,7 +45,8 @@ public class ViewUtils {
             }
             tmp = (View) tmp.getParent();
             if (tmp == null) {
-                throw new IllegalArgumentException("the view is not showing in the window!");
+                Log.e("","the view is not showing in the window!");
+                break;
             }
             //fix ScrollView中无法获取正确的位置
             if (tmp.getParent() instanceof ScrollView) {
